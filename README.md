@@ -55,4 +55,4 @@ Ex:
 ## Authors
 
 * **Ivan Dario Lasso Gil** - *Holberton Student. Cohort 10* - [Email](mailto:ivan-dario.lasso-gil@holbertonschool.com)
-* **Kevin Castro** - *Holberton Student. Cohort 10* - [Email](mailto:kevin--brandown.castro@holbertonschool.com)
+* **Kevin Castro Pino** - *Holberton Student. Cohort 10* - [Email](mailto:kevin--brandown.castro@holbertonschool.com)
