@@ -1,15 +1,29 @@
 #!/usr/bin/python3
-"""This is the user class"""
+"""Module: user
+This module defines the User Class to AirBnB project.
+
+Atributes:
+    email (str): email of user
+    password (str): password of user
+    first_name (str): first name of user
+    last_name (str): lasr name of user
+
+"""
+
+
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """This is the class for user
-    Attributes:
-        email: email address
-        password: password for you login
-        first_name: first name
-        last_name: last name
+    """Class User
+    Inherits from User
+    Creates class attributes for User Class
+ 
+    Atributes:
+        email (str): email of user
+        password (str): password of user
+        first_name (str): first name of user
+        last_name (str): lasr name of user
     """
     email = ""
     password = ""

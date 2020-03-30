@@ -1,13 +1,47 @@
 #!/usr/bin/python3
-"""This is the base model class for AirBnB"""
+"""Module: base_model
+This module defines the BaseModel Class to AirBnB project.
+
+Atributes:
+    id (str): assign with an uuid when an instance is created
+    created_at (datetime): assign with the current datetime
+                           when an instance is created
+    updated_at (datetime): assign with the current datetime when
+                           an instance is created and it will be
+                           updated every time you change your objec
+t
+Modifications:
+30-Mzo-2020
+__init__:include id(uuid) whith kwargs
+         add a new instan in __objects through models.storage.new(obj)
+save: include created_at attrib
+
+"""
 import uuid
 import models
 from datetime import datetime
 
 
 class BaseModel:
-    """This class will defines all common attributes/methods
-    for other classes
+    """Class BaseModel
+    BaseModel is the principal class to operate program
+    Here the id and date are generated.
+
+    Args:
+        *args: list of data to create or modify an instance
+        **kwargs: dictionary of data to create or modify an instanc
+e
+
+    Atributes:
+        id (str): assign with an uuid when an instance is created
+        created_at (datetime): assign with the current datetime
+                               when an instance is created
+        updated_at (datetime): assign with the current datetime whe
+n
+                               an instance is created and it will b
+e
+                               updated every time you change your o
+bject
     """
 
     def __init__(self, *args, **kwargs):
@@ -21,11 +55,13 @@ class BaseModel:
             updated_at: updated date
         """
         if kwargs:
+            self.id = str(uuid.uuid4())
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
+            models.storage.new(self)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
@@ -48,6 +84,7 @@ class BaseModel:
         """updates the public instance attribute updated_at to current
         """
         self.updated_at = datetime.now()
+        self.created_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):

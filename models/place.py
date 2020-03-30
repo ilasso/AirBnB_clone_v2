@@ -1,22 +1,45 @@
 #!/usr/bin/python3
-"""This is the place class"""
+"""Module: place
+This module defines the Place Class to AirBnB project.
+
+Atributes:
+    city_id (str): it will be the City.id
+    user_id (str): it will be the User.id
+    name (str): name of the place
+    description (str): description of place
+    number_rooms (int): number of rooms in a place
+    number_bathrooms (int): number of bathrooms in a place
+    max_guest (int): max of guest in a place
+    price_by_night (int): price by nighe in a place
+    latitude (float): latitude location
+    longitude (float): longitud location
+    amenity_ids (list): list of string it will be the list of Ameni
+ty.id later
+
+"""
+
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """This is the class for Place
-    Attributes:
-        city_id: city id
-        user_id: user id
-        name: name input
-        description: string of description
-        number_rooms: number of room in int
-        number_bathrooms: number of bathrooms in int
-        max_guest: maximum guest in int
-        price_by_night:: pice for a staying in int
-        latitude: latitude in flaot
-        longitude: longitude in float
-        amenity_ids: list of Amenity ids
+    """Class Place
+    Inherits from BaseModel
+    Creates class attributes for Place class.
+
+    Atributes:
+        city_id (str): it will be the City.id
+        user_id (str): it will be the User.id
+        name (str): name of the place
+        description (str): description of place
+        number_rooms (int): number of rooms in a place
+        number_bathrooms (int): number of bathrooms in a place
+        max_guest (int): max of guest in a place
+        price_by_night (int): price by nighe in a place
+        latitude (float): latitude location
+        longitude (float): longitud location
+        amenity_ids (list): list of string it will be the list
+                            of Amenity.id later
+
     """
     city_id = ""
     user_id = ""

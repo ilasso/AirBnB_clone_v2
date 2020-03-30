@@ -1,13 +1,24 @@
 #!/usr/bin/python3
-"""This is the city class"""
+"""Module: base city
+This module defines City class
+
+Atributes:
+    state_id (str): it will be the State.id
+    name (datetime): name of city
+"""
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """This is the class for City
-    Attributes:
-        state_id: The state id
-        name: input name
+    """Class City
+    Inherits from BaseModel
+    Create class attributes by City class
+
+    Atributes:
+        state_id (str): it will be the State.id
+        name (datetime): name of city
+
     """
+
     state_id = ""
     name = ""

@@ -1,15 +1,30 @@
 #!/usr/bin/python3
-"""This is the review class"""
+"""Module: review
+This module defines the Review Class to AirBnB project.
+
+Atributes:
+    place_id (str): it will be the Place.id
+    user_id (str): it will be the User.id
+    text (str): string for data text
+
+"""
+
+
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """This is the class for Review
-    Attributes:
-        place_id: place id
-        user_id: user id
-        text: review description
+    """Class Review
+    Inherits from BaseModel
+    Creates class attributes for Review Class
+
+    Atributes:
+        place_id (str): it will be the Place.id
+        user_id (str): it will be the User.id
+        text (str): string for data text
+
     """
+
     place_id = ""
     user_id = ""
     text = ""

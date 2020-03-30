@@ -1,11 +1,24 @@
 #!/usr/bin/python3
-"""This is the state class"""
+"""Module: state
+This module defines the State Class to AirBnB project.
+
+Atributes:
+    name (str): name of state
+
+"""
+
+
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """This is the class for State
-    Attributes:
-        name: input name
+    """Class State
+    Inherits from BaseModel
+    Creates class attributes for State Class
+
+    Atributes:
+        name (str): name of state
+
     """
+
     name = ""

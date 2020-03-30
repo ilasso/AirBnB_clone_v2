@@ -1,5 +1,17 @@
 #!/usr/bin/python3
-"""This is the file storage class for AirBnB"""
+"""Module: file_storage
+This module defines the FileStorage Class to AirBnB project.
+Used to access and edit a JSON file
+
+Args:
+    obj (obj): input instance of object used to create a new in dic
+tionary
+
+Atributes:
+    __file_path (str): path to the JSON file (ex: file.json)
+    __objects (dict): store all objects by <class name>.id
+
+"""
 import json
 from models.base_model import BaseModel
 from models.user import User
