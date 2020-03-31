@@ -8,24 +8,36 @@ Atributes:
                            when an instance is created
     updated_at (datetime): assign with the current datetime when
                            an instance is created and it will be
-                           updated every time you change your objec
-t
-Modifications:
-30-Mzo-2020
+                           updated every time you change your object
+Updated by:
+date:30-Mzo-2020
+Author: Ivan Dario Lasso:
 __init__:include id(uuid) whith kwargs
          add a new instan in __objects through models.storage.new(obj)
 save: include created_at attrib
+date:30-Mzo-2020
+Author:Kevin Castro
+Includes sqlalchemy instructions
+date:30-Mzo-2020
+Author: Ivan Dario Lasso:
+Reverse sqlalchemy instructions. Console it doesnt work
 
 """
+
+
 import uuid
 import models
 from datetime import datetime
+<<<<<<< HEAD
 """KC-> adding"""
 from sqlalchemy import Column, Integer, String, DateTime
 """KC-> adding"""
 from sqlalchemy.ext.declarative import declarative_base
 """KC-> adding"""
 Base = declarative_base()
+=======
+
+>>>>>>> 1dc23ea69dce3f26eda274ed441f5913567162c9
 
 class BaseModel:
     """Class BaseModel
@@ -49,12 +61,21 @@ e
 bject
     """
 
+<<<<<<< HEAD
     """KC add this block to create new attrs for this class"""
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
     created_at = Column(DateTime, default=datetime.utcnow,
                         nullable=False)
     update_at = Column(DateTime, default=datetime.utcnow,
                        nullable=False)
+=======
+    """KC add this block"""
+#    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+#    created_at = Column(DateTime, default=datetime.datetime.utcnow,
+#                        nullable=False)
+#    update_at = Column(DateTime, default=datetime.datetime.utcnow,
+#                       nullable=False)
+>>>>>>> 1dc23ea69dce3f26eda274ed441f5913567162c9
 
     def __init__(self, *args, **kwargs):
         """Instantiation of base model class

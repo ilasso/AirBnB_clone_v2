@@ -11,6 +11,13 @@ Atributes:
     __file_path (str): path to the JSON file (ex: file.json)
     __objects (dict): store all objects by <class name>.id
 
+Update by:
+Date:31-Mzo-2020
+Author: Ivan Dario Lasso:
+Task5 to take a classname(cls) in instance method all
+if class arg is Not None return only specific class registers
+add instance method delete to delete an id to de __objects dict
+
 """
 import json
 from models.base_model import BaseModel
@@ -20,6 +27,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import sys
 
 
 class FileStorage:
@@ -32,12 +40,20 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
+    def all(self, cls=None):
         """returns a dictionary
         Return:
             returns a dictionary of __object
         """
-        return self.__objects
+        if cls is None:
+            return self.__objects
+        # if cls arg has a value return new dict only whith specific
+        # class registers
+        dictionary = {}
+        for i, j in self.__objects.items():
+            if j.__class__ == cls:
+                dictionary[i] = j
+        return dictionary
 
     def new(self, obj):
         """sets __object to given obj
@@ -67,3 +83,11 @@ class FileStorage:
                     self.__objects[key] = value
         except FileNotFoundError:
             pass
+
+    def delete(self, obj=None):
+        """to delete obj from __objects if it’s inside
+        """
+        if obj:
+            key = "{}.{}".format(type(obj).__name__, obj.id)
+            del self.__objects[key]
+            self.save()
