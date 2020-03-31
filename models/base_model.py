@@ -20,7 +20,10 @@ save: include created_at attrib
 import uuid
 import models
 from datetime import datetime
+from sqlalchemy import Column, Integer, String, DateTime """KC-> adding"""
+from sqlalchemy.ext.declarative import declarative_base """KC-> adding"""
 
+Base = declarative_base() """KC-> adding"""
 
 class BaseModel:
     """Class BaseModel
@@ -43,6 +46,13 @@ e
                                updated every time you change your o
 bject
     """
+
+    """KC add this block"""
+    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow,
+                        nullable=False)
+    update_at = Column(DateTime, default=datetime.datetime.utcnow,
+                       nullable=False)
 
     def __init__(self, *args, **kwargs):
         """Instantiation of base model class
