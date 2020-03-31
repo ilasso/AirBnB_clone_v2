@@ -20,10 +20,12 @@ save: include created_at attrib
 import uuid
 import models
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime """KC-> adding"""
-from sqlalchemy.ext.declarative import declarative_base """KC-> adding"""
-
-Base = declarative_base() """KC-> adding"""
+"""KC-> adding"""
+from sqlalchemy import Column, Integer, String, DateTime
+"""KC-> adding"""
+from sqlalchemy.ext.declarative import declarative_base
+"""KC-> adding"""
+Base = declarative_base()
 
 class BaseModel:
     """Class BaseModel
@@ -47,11 +49,11 @@ e
 bject
     """
 
-    """KC add this block"""
+    """KC add this block to create new attrs for this class"""
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow,
+    created_at = Column(DateTime, default=datetime.utcnow,
                         nullable=False)
-    update_at = Column(DateTime, default=datetime.datetime.utcnow,
+    update_at = Column(DateTime, default=datetime.utcnow,
                        nullable=False)
 
     def __init__(self, *args, **kwargs):
@@ -71,11 +73,10 @@ bject
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
-            models.storage.new(self)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
-            models.storage.new(self)
+
 
     def __str__(self):
         """returns a string
@@ -95,6 +96,8 @@ bject
         """
         self.updated_at = datetime.now()
         self.created_at = datetime.now()
+        """KC add-> remove this line from  __init__"""
+        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
