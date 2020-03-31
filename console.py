@@ -66,7 +66,42 @@ e, Review).
                 raise SyntaxError()
 
             my_list = line.split(" ")
-            ka = ",".join(my_list[1:])
+
+            listakwargs = []
+
+            for i in my_list[1:]:
+                try:
+                    # check params. Param syntax: <key name>=<value>
+                    listasplit = i.split("=")
+                    x = i
+
+                    # if param doesnt fit is ignored(skiped)
+                    if len(listasplit) == 2:
+
+                        if(listasplit[1]) == '':
+                            raise ValueError()
+
+                        value = listasplit[1]
+
+                        # validate value string syntax
+                        if value[0] == '"' and value[len(value) - 1] == '"':
+                            # replace "_" for space to store
+                            if '_' in value:
+                                listasplit[1] = str(value.replace('_', ' '))
+                                x = "=".join(listasplit)
+
+                        elif value[0] == '"' and value[len(value) - 1] != '"':
+                            raise ValueError()
+                        elif value[0] != '"' and value[len(value) - 1] == '"':
+                            raise ValueError()
+
+                        listakwargs.append(x)
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    continue
+
+            ka = ",".join(listakwargs)
             obj = eval("{}({})".format(my_list[0], ka))
             obj.save()
             print("{}".format(obj.id))
