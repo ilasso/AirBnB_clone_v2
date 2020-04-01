@@ -21,6 +21,15 @@ Includes sqlalchemy instructions
 date:30-Mzo-2020
 Author: Ivan Dario Lasso:
 Reverse sqlalchemy instructions. Console it doesnt work
+date:30-Mzo-2020
+Author:Kevin Castro
+Includes sqlalchemy instructions newly
+save: move models.storage.new(self) to save() before filestore.save()
+date:30-Mzo-2020
+Author: Ivan Dario Lasso:
+__init__:ask if id is None, in this case if use uuid
+to_dict: si encuentra el key _sa_instance_state eliminarlo
+delete:add delete instance method from models.storage.delete()
 
 """
 
@@ -28,11 +37,9 @@ Reverse sqlalchemy instructions. Console it doesnt work
 import uuid
 import models
 from datetime import datetime
-"""KC-> adding"""
 from sqlalchemy import Column, Integer, String, DateTime
-"""KC-> adding"""
 from sqlalchemy.ext.declarative import declarative_base
-"""KC-> adding"""
+
 Base = declarative_base()
 
 
@@ -43,29 +50,29 @@ class BaseModel:
 
     Args:
         *args: list of data to create or modify an instance
-        **kwargs: dictionary of data to create or modify an instanc
-e
+        **kwargs: dictionary of data to create or modify an instance
 
     Atributes:
         id (str): assign with an uuid when an instance is created
         created_at (datetime): assign with the current datetime
                                when an instance is created
-        updated_at (datetime): assign with the current datetime whe
-n
-                               an instance is created and it will b
-e
-                               updated every time you change your o
-bject
+        updated_at (datetime): assign with the current datetime when
+                               an instance is created and it will be
+                               updated every time you change your object
     """
 
+    id = Column(String(60),
+                unique=True,
+                nullable=False,
+                primary_key=True)
 
-    """KC add this block to create new attrs for this class"""
-    id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, default=datetime.utcnow,
+    created_at = Column(DateTime,
+                        default=datetime.utcnow,
                         nullable=False)
-    update_at = Column(DateTime, default=datetime.utcnow,
-                       nullable=False)
 
+    update_at = Column(DateTime,
+                       default=datetime.utcnow,
+                       nullable=False)
 
     def __init__(self, *args, **kwargs):
         """Instantiation of base model class
@@ -78,7 +85,8 @@ bject
             updated_at: updated date
         """
         if kwargs:
-            self.id = str(uuid.uuid4())
+            if self.id is None:
+                self.id = str(uuid.uuid4())
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
@@ -87,7 +95,6 @@ bject
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
-
 
     def __str__(self):
         """returns a string
@@ -120,4 +127,12 @@ bject
         my_dict["__class__"] = str(type(self).__name__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
+        if '_sa_instance_state' in my_dict:
+            del my_dict['_sa_instance_state']
+
         return my_dict
+
+    def delete(self):
+        """delete instance method. delete a class
+        """
+        models.storage.delete()
