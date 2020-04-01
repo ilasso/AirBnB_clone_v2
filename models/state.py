@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """Module: state
 This module defines the State Class to AirBnB project.
-
 Atributes:
     name (str): name of state
-
 """
+
+
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
@@ -17,10 +17,8 @@ class State(BaseModel, Base):
     """Class State
     Inherits BaseModel
     Creates class attributes for State Class
-
     Atributes:
         name (str): name of state
-
     """
 
     __tablename__ = 'states'

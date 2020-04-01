@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module: base city
 This module defines City class
-
 Atributes:
     state_id (str): it will be the State.id
     name (datetime): name of city
@@ -16,11 +15,9 @@ class City(BaseModel, Base):
     """Class City
     Inherits BaseModel
     Create class attributes by City class
-
     Atributes:
         state_id (str): it will be the State.id
         name (datetime): name of city
-
     """
     __tablename__ = 'cities'
 

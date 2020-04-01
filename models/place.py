@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module: place
 This module defines the Place Class to AirBnB project.
-
 Atributes:
     city_id (str): it will be the City.id
     user_id (str): it will be the User.id
@@ -14,8 +13,8 @@ Atributes:
     latitude (float): latitude location
     longitude (float): longitud location
     amenity_ids (list): list of string it will be the list of Amenity.id later
-
 """
+
 
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, Float
@@ -27,7 +26,6 @@ class Place(BaseModel, Base):
     """Class Place
     Inherits BaseModel
     Creates class attributes for Place class.
-
     Atributes:
         city_id (str): it will be the City.id
         user_id (str): it will be the User.id
@@ -41,7 +39,6 @@ class Place(BaseModel, Base):
         longitude (float): longitud location
         amenity_ids (list): list of string it will be the list
                             of Amenity.id later
-
     """
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)

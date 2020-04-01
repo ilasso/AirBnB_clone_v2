@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module: base_model
 This module defines the BaseModel Class to AirBnB project.
-
 Atributes:
     id (str): assign with an uuid when an instance is created
     created_at (datetime): assign with the current datetime

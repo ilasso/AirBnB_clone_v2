@@ -4,8 +4,9 @@ This module define Amenity class
 
 Atributes:
     name (str): name of amenity
-
 """
+
+
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
