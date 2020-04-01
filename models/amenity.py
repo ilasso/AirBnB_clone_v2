@@ -6,10 +6,12 @@ Atributes:
     name (str): name of amenity
 
 """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 
 
-class Amenity(BaseModel):
+class Amenity(BaseModel, Base):
     """Class Amenity
     Inherits from BaseModel
     create class Amenity
@@ -18,4 +20,5 @@ class Amenity(BaseModel):
         name (str): name of amenity
 
     """
-    name = ""
+    __tablename__ = "amenities"
+    name = Column(String(128), nullable=False)
