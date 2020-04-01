@@ -42,8 +42,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """
-        Creates a new instance of a ClassName and saves it (to the
-JSON file)
+        Creates a new instance of a ClassName and saves it (to the JSON file)
         and return the id of the new instance.
 
         Use: create <class name>
@@ -51,15 +50,10 @@ JSON file)
 
         Args:
             arg (str): Name of the class to create instance
-                       (BaseModel, User, State, City, Amenity, Plac
-e, Review).
+                       (BaseModel, User, State, City, Amenity, Place, Review).
         Exceptions:
             SyntaxError: when there is no args given
             NameError: when there is no object taht has the name
-        History:
-        Date: 30-Mzo-2020
-        do_create: read all arguments and coverts in kwargs to create object
-
         """
         try:
             if not line:
@@ -112,16 +106,14 @@ e, Review).
 
     def do_show(self, line):
         """
-        Prints the string representation of an instance based in cl
-ass
+        Prints the string representation of an instance based in class
         and instance id.
 
         Use: show <class name> <id>
         Ex: show BaseModel b9132a3f-0ffd-49df-950d-7b257dcddbc7
 
            Args:
-               arg (str): The name of the class and id, separated b
-y space
+               arg (str): The name of the class and id, separated by space
         Exceptions:
             SyntaxError: when there is no args given
             NameError: when there is no object taht has the name
@@ -159,10 +151,8 @@ y space
 
         Use: destroy <class name> <id>
         Ex: destroy BaseModel b9132a3f-0ffd-49df-950d-7b257dcddbc7
-
         Args:
-            arg (str): The name of the class and id, separated by s
-pace.
+            arg (str): The name of the class and id, separated by space.
         Exceptions:
             SyntaxError: when there is no args given
             NameError: when there is no object taht has the name
@@ -182,7 +172,8 @@ pace.
             key = my_list[0] + '.' + my_list[1]
             if key in objects:
                 del objects[key]
-                storage.save()
+                # storage.save()
+                storage.delete()
             else:
                 raise KeyError()
         except SyntaxError:
@@ -200,10 +191,8 @@ pace.
         based or not on the class name.
 
         Use: all <class name> (optional)
-        Ex: all              # This prints all instances of all cla
-sses
-            all BaseModel    # This prints all instances of BaseMod
-el
+        Ex: all              # This prints all instances of all classes
+            all BaseModel    # This prints all instances of BaseModel
 
         Args:
             arg (str): Name of the class
@@ -232,13 +221,10 @@ el
 
     def do_update(self, line):
         """
-        Updates an instance based on the class name, id and attribu
-tes.
+        Updates an instance based on the class name, id and attributes.
 
-        Use: update <class name> <id> <attribute name> "<attribute
-value>"
-        Ex: update User 49faff9a-6318-451f-87b6-910505c55907 first_
-name "Betty"
+        Use: update <class name> <id> <attribute name> "<attribute value>"
+        Ex: update User 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 
         Args:
             arg (str): The name of the class, id, attrubute and
@@ -339,16 +325,12 @@ name "Betty"
         """retrieve all instances of a class and
         retrieve the number of instances
         execute when command doesnt exist.
-        Ex: User.count() its not do_XXX funtion, then default logic
-al
-            is excecuted and eval if it is count instance requireme
-nt.
+        Ex: User.count() its not do_XXX funtion, then default logical
+            is excecuted and eval if it is count instance requirement.
         Ex: User.all() its not do_XXX funtion, then default logical
-            is excecuted and eval if it is all display user instanc
-e
+            is excecuted and eval if it is all display user instance
             requirement.
-        Args: string could be <class name>.funcion where function r
-eferes to
+        Args: string could be <class name>.funcion where function referes to
               an expecific propose(see Ex.)
         """
         my_list = line.split('.')

@@ -13,8 +13,7 @@ Atributes:
     price_by_night (int): price by nighe in a place
     latitude (float): latitude location
     longitude (float): longitud location
-    amenity_ids (list): list of string it will be the list of Ameni
-ty.id later
+    amenity_ids (list): list of string it will be the list of Amenity.id later
 
 """
 

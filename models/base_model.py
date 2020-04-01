@@ -9,28 +9,6 @@ Atributes:
     updated_at (datetime): assign with the current datetime when
                            an instance is created and it will be
                            updated every time you change your object
-Updated by:
-date:30-Mzo-2020
-Author: Ivan Dario Lasso:
-__init__:include id(uuid) whith kwargs
-         add a new instan in __objects through models.storage.new(obj)
-save: include created_at attrib
-date:30-Mzo-2020
-Author:Kevin Castro
-Includes sqlalchemy instructions
-date:30-Mzo-2020
-Author: Ivan Dario Lasso:
-Reverse sqlalchemy instructions. Console it doesnt work
-date:30-Mzo-2020
-Author:Kevin Castro
-Includes sqlalchemy instructions newly
-save: move models.storage.new(self) to save() before filestore.save()
-date:30-Mzo-2020
-Author: Ivan Dario Lasso:
-__init__:ask if id is None, in this case if use uuid
-to_dict: si encuentra el key _sa_instance_state eliminarlo
-delete:add delete instance method from models.storage.delete()
-
 """
 
 

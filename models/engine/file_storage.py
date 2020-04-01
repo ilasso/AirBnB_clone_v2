@@ -11,13 +11,6 @@ Atributes:
     __file_path (str): path to the JSON file (ex: file.json)
     __objects (dict): store all objects by <class name>.id
 
-Update by:
-Date:31-Mzo-2020
-Author: Ivan Dario Lasso:
-Task5 to take a classname(cls) in instance method all
-if class arg is Not None return only specific class registers
-add instance method delete to delete an id to de __objects dict
-
 """
 import json
 from models.base_model import BaseModel
