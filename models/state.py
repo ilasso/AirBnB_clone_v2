@@ -15,7 +15,7 @@ import os
 
 class State(BaseModel, Base):
     """Class State
-    Inherits from BaseModel
+    Inherits BaseModel
     Creates class attributes for State Class
 
     Atributes:

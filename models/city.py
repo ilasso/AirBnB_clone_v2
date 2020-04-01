@@ -14,7 +14,7 @@ from models.place import Place
 
 class City(BaseModel, Base):
     """Class City
-    Inherits from BaseModel
+    Inherits BaseModel
     Create class attributes by City class
 
     Atributes:

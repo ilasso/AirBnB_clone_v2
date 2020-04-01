@@ -16,7 +16,7 @@ from sqlalchemy import Column, String, ForeignKey
 
 class Review(BaseModel, Base):
     """Class Review
-    Inherits from BaseModel
+    Inherits BaseModel
     Creates class attributes for Review Class
 
     Atributes:

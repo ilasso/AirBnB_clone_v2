@@ -92,7 +92,6 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         self.created_at = datetime.now()
-        """KC add-> remove this line from  __init__"""
         models.storage.new(self)
         models.storage.save()
 

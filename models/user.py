@@ -20,7 +20,7 @@ from models.place import Place
 
 class User(BaseModel, Base):
     """Class User
-    Inherits from User
+    Inherits User
     Creates class attributes for User Class
 
     Atributes:

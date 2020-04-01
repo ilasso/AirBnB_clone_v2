@@ -13,7 +13,7 @@ from sqlalchemy.orm import relationship
 
 class Amenity(BaseModel, Base):
     """Class Amenity
-    Inherits from BaseModel
+    Inherits BaseModel
     create class Amenity
 
     Atributes:

@@ -25,7 +25,7 @@ from sqlalchemy.orm import relationship
 
 class Place(BaseModel, Base):
     """Class Place
-    Inherits from BaseModel
+    Inherits BaseModel
     Creates class attributes for Place class.
 
     Atributes:
