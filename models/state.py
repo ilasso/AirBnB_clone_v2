@@ -8,7 +8,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 import models
-from os import getenv
+import os
 
 
 class State(BaseModel, Base):
