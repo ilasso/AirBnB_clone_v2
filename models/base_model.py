@@ -45,11 +45,11 @@ class BaseModel:
                 primary_key=True)
 
     created_at = Column(DateTime,
-                        default=datetime.utcnow,
+                        default=datetime.utcnow(),
                         nullable=False)
 
     update_at = Column(DateTime,
-                       default=datetime.utcnow,
+                       default=datetime.utcnow(),
                        nullable=False)
 
     def __init__(self, *args, **kwargs):
