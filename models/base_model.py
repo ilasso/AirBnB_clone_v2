@@ -61,9 +61,7 @@ class BaseModel:
             returns a string of class name, id, and dictionary
         """
         my_dict = self.__dict__.copy()
-        if "_sa_instance_state" in my_dict:
-            del(my_dict["_sa_instance_state"])
-
+        my_dict.pop("sa_instance_state", None)
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      str(self.id),
                                      my_dict)
