@@ -174,7 +174,6 @@ class HBNBCommand(cmd.Cmd):
             key = my_list[0] + '.' + my_list[1]
             if key in objects:
                 objects[key].delete()
-                del objects[key]
                 storage.save()
             else:
                 raise KeyError()
