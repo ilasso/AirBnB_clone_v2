@@ -1,17 +1,6 @@
 #!/usr/bin/python3
 
-"""Module: base_model
-This module defines the BaseModel Class to AirBnB project.
-Atributes:
-    id (str): assign with an uuid when an instance is created
-    created_at (datetime): assign with the current datetime
-                           when an instance is created
-    updated_at (datetime): assign with the current datetime when
-                           an instance is created and it will be
-                           updated every time you change your object
-"""
-
-
+"""Module: base_model"""
 import uuid
 import models
 from datetime import datetime
@@ -39,18 +28,9 @@ class BaseModel:
                                updated every time you change your object
     """
 
-    id = Column(String(60),
-                unique=True,
-                nullable=False,
-                primary_key=True)
-
-    created_at = Column(DateTime,
-                        default=datetime.utcnow(),
-                        nullable=False)
-
-    update_at = Column(DateTime,
-                       default=datetime.utcnow(),
-                       nullable=False)
+    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+    created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
+    update_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """Instantiation of base model class
