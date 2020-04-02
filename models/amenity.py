@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+
 """
 This module define Amenity class
 """
-
 
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String

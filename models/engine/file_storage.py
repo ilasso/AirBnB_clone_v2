@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+
 """
 This module defines the FileStorage Class to AirBnB project.
 """
-
 
 import json
 from models.base_model import BaseModel

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """AirBnB Clone - Console
 This module creates a command interpreter to AirBnb Clone
 Uses the cmd module
@@ -6,7 +7,6 @@ Holberton School
 Foundations - Higher-level programming - Python
 By Iván Darío Lasso and Kevin Castro
 """
-
 
 import cmd
 from models import storage
