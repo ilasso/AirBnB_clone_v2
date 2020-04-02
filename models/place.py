@@ -23,6 +23,7 @@ place_amenity = Table('place_amenity', Base.metadata,
                              nullable=False,
                              primary_key=True))
 
+
 class Place(BaseModel, Base):
     """Creates class attributes for Place class"""
     __tablename__ = "places"
@@ -38,7 +39,8 @@ class Place(BaseModel, Base):
     longitude = Column(Float, nullable=True)
     amenity_ids = []
     reviews = relationship("Review", backref="place", cascade="all, delete")
-    amenities = relationship("Amenity", secondary=place_amenity, viewonly=False)
+    amenities = relationship("Amenity", secondary=place_amenity,
+                             viewonly=False)
 
     if os.getenv('HBNB_TYPE_STORAGE') != 'db':
         @property
