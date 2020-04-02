@@ -17,7 +17,12 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 class DBStorage:
-    """This class serializes instances to a JSON file and"""
+    """This class serializes instances to a JSON file and
+    deserializes JSON file to instances
+    Attributes:
+        __file_path: path to the JSON file
+        __objects: objects will be stored
+    """
     __engine = None
     __session = None
 
@@ -33,7 +38,10 @@ class DBStorage:
             Base.metabase.drop_all(self_engine)
 
     def all(self, cls=None):
-        """returns a dictionary of __object"""
+        """returns a dictionary
+        Return:
+            returns a dictionary of __object
+        """
         dictionary = {}
         if cls is None:
             all_cls = ["State", "City", "User", "Amenity", "Place", "Review"]
@@ -51,18 +59,22 @@ class DBStorage:
         return dictionary
 
     def new(self, obj):
-        """sets __object to given obj"""
+        """sets __object to given obj
+        Args:
+            obj: given object
+        """
         self.__session.add(obj)
 
     def save(self):
-        """serialize the file path to JSON file path"""
+        """serialize the file path to JSON file path
+        """
         self.__session.commit()
 
     def delete(self, obj=None):
-        """to delete obj from __objects if it’s inside"""
+        """to delete obj from __objects if it’s inside
+        """
         if obj is not None:
             self.__session.delete(obj)
-        self.save()
 
     def reload(self):
         """Reload objs"""
