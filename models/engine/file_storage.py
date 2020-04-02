@@ -1,13 +1,6 @@
 #!/usr/bin/python3
-"""Module: file_storage
+"""
 This module defines the FileStorage Class to AirBnB project.
-Used to access and edit a JSON file
-Args:
-    obj (obj): input instance of object used to create a new in dic
-tionary
-Atributes:
-    __file_path (str): path to the JSON file (ex: file.json)
-    __objects (dict): store all objects by <class name>.id
 """
 
 
@@ -23,24 +16,14 @@ import sys
 
 
 class FileStorage:
-    """This class serializes instances to a JSON file and
-    deserializes JSON file to instances
-    Attributes:
-        __file_path: path to the JSON file
-        __objects: objects will be stored
-    """
+    """This class serializes instances to a JSON file and"""
     __file_path = "file.json"
     __objects = {}
 
     def all(self, cls=None):
-        """returns a dictionary
-        Return:
-            returns a dictionary of __object
-        """
+        """returns a dictionary returns a dictionary of __object"""
         if cls is None:
             return self.__objects
-        # if cls arg has a value return new dict only whith specific
-        # class registers
         dictionary = {}
         for i, j in self.__objects.items():
             if j.__class__ == cls:
@@ -48,17 +31,13 @@ class FileStorage:
         return dictionary
 
     def new(self, obj):
-        """sets __object to given obj
-        Args:
-            obj: given object
-        """
+        """sets __object to given obj given object"""
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             self.__objects[key] = obj
 
     def save(self):
-        """serialize the file path to JSON file path
-        """
+        """serialize the file path to JSON file path"""
         my_dict = {}
         for key, value in self.__objects.items():
             my_dict[key] = value.to_dict()
@@ -66,8 +45,7 @@ class FileStorage:
             json.dump(my_dict, f)
 
     def reload(self):
-        """serialize the file path to JSON file path
-        """
+        """serialize the file path to JSON file path"""
         try:
             with open(self.__file_path, 'r', encoding="UTF-8") as f:
                 for key, value in (json.load(f)).items():
@@ -77,8 +55,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """to delete obj from __objects if it’s inside
-        """
+        """to delete obj from __objects if it’s inside"""
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             del self.__objects[key]

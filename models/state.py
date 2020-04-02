@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""Module: state
+"""
 This module defines the State Class to AirBnB project.
-Atributes:
-    name (str): name of state
 """
 
 
@@ -14,12 +12,7 @@ import os
 
 
 class State(BaseModel, Base):
-    """Class State
-    Inherits BaseModel
-    Creates class attributes for State Class
-    Atributes:
-        name (str): name of state
-    """
+    """Creates class attributes for State Class"""
 
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)

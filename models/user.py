@@ -1,11 +1,6 @@
 #!/usr/bin/python3
-"""Module: user
+"""
 This module defines the User Class to AirBnB project.
-Atributes:
-    email (str): email of user
-    password (str): password of user
-    first_name (str): first name of user
-    last_name (str): lasr name of user
 """
 
 
@@ -17,15 +12,7 @@ from models.place import Place
 
 
 class User(BaseModel, Base):
-    """Class User
-    Inherits User
-    Creates class attributes for User Class
-    Atributes:
-        email (str): email of user
-        password (str): password of user
-        first_name (str): first name of user
-        last_name (str): lasr name of user
-    """
+    """Creates class attributes for User Class"""
     __tablename__ = "users"
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
