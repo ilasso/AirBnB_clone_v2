@@ -23,7 +23,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """Cities"""
-            all_cities = models.engine.all(City)
+            all_cities = models.storage.all(City)
             all_cities_state = []
             for key, value in all_cities.items():
                 if self.id == value.state_id:
