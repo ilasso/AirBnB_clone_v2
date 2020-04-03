@@ -55,6 +55,16 @@ class TestDBStorage(unittest.TestCase):
         pep = style.check_files(['models/engine/db_storage.py'])
         self.assertEqual(pep.total_errors, 0, "fix pep8")
 
+    def test_attributes_DBStorage(self):
+        """Test DBStorage attributes methods"""
+        self.assertTrue(hasattr(DBStorage, '_DBStorage__engine'))
+        self.assertTrue(hasattr(DBStorage, '_DBStorage__session'))
+        self.assertTrue(hasattr(DBStorage, 'new'))
+        self.assertTrue(hasattr(DBStorage, 'save'))
+        self.assertTrue(hasattr(DBStorage, 'all'))
+        self.assertTrue(hasattr(DBStorage, 'delete'))
+        self.assertTrue(hasattr(DBStorage, 'reload'))
+
 
 if __name__ == "__main__":
     unittest.main()
