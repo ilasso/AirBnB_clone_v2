@@ -51,6 +51,12 @@ class BaseModel:
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
+
+            stamp = datetime.now()
+            if self.created_at is None:
+                self.created_at = stamp
+            if self.updated_at is None:
+                self.updated_at = stamp
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
