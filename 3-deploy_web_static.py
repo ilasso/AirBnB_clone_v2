@@ -19,9 +19,9 @@ def do_pack():
     try:
         local("sudo tar -cvzf versions/web_static_{}.tgz "
               .format(date_string) + "web_static")
-        return "/versions/web_static_{}.tgz".format(date_string)
+        return "versions/web_static_{}.tgz".format(date_string)
     except BaseException:
-        return None
+        return False
 
 
 def do_deploy(archive_path):
@@ -58,6 +58,7 @@ def do_deploy(archive_path):
         # recreate link
         run("sudo rm /data/web_static/current")
         run("sudo ln -s {} /data/web_static/current".format(uncomprespath))
+        print("New version deployed!")
         return True
 
     except Exception:
@@ -72,5 +73,5 @@ def deploy():
     """
     runpack = do_pack()
     if os.path.exists(runpack):
-        return False
-    return do_deploy(runpack)
+        return do_deploy(runpack)
+    return False
