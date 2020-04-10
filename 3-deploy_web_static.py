@@ -71,6 +71,6 @@ def deploy():
         using the function deploy
     """
     runpack = do_pack()
-    if runpack is None:
+    if os.path.exists(runpack):
         return False
     return do_deploy(runpack)
