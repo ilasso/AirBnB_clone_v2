@@ -86,4 +86,3 @@ class DBStorage:
     def close(self):
         """Reload objs"""
         self.__session.close()
-
