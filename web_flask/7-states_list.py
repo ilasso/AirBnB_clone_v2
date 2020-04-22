@@ -80,7 +80,7 @@ def renderoddoreven(n):
     return render_template('6-number_odd_or_even.html', n=n, word=oddoreven)
 
 
-@app.route('/states_list/', strict_slashes=False)
+@app.route('/states_list', strict_slashes=False)
 def getstateslist():
     """
     display sorted states inside tag body in HTML page
@@ -90,10 +90,8 @@ def getstateslist():
 
 
 @app.teardown_appcontext
-    """
-    remove the current SQLAlchemy Session
-    """
 def close(error):
+    """ remove the current SQLAlchemy Session """
     storage.close()
 
 
