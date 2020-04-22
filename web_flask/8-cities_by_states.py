@@ -101,7 +101,7 @@ def getcitesbystatelist():
     display sorted states inside tag body in HTML page
     """
     list = storage.all(State).values()
-    return render_template('8-cities_by_states.html', states=list)
+    return render_template('8-cities_by_states.html', lstates=list)
 
 
 if __name__ == "__main__":
