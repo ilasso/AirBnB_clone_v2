@@ -82,3 +82,8 @@ class DBStorage:
         Session_sc = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(Session_sc)
         self.__session = Session()
+
+    def close(self):
+        """Reload objs"""
+        self.__session.close()
+
